@@ -24,9 +24,7 @@ class KetidakhadiranRequest extends FormRequest
         return [
             'tglawal' => 'required',
             'tglakhir' => 'required',
-            'keterangan' => 'required',
             'media' => 'required',
-            'password' => 'required'
         ];
     }
 }

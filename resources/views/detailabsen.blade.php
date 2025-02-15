@@ -63,7 +63,7 @@
                           </div>
                           <div class="mb-3 col-md-6" style="display:{{$datas[0]->kehadiran == 'Hadir' ? 'none' : 'show'}}">
                             <label class="form-label">Media</label><br>
-                            <a href="{{ asset('file/ketidakhadiran/'. $datas[0]->media) }}">Lihat media!</a>
+                            <a href="{{ asset('file/ketidakhadiran/'. $datas[0]->media) }}">Lihat lampiran!</a>
                           </div>
                           <div class="mb-3 col-md-6">
                             <label for="name" class="form-label">name</label>

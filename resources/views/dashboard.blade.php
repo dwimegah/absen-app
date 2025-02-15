@@ -52,7 +52,7 @@
                             Semangat memulai hari. Jangan lupa melakukan absensi!
                           </p>
 
-                          <a href="absen" class="btn btn-sm btn-outline-primary">Lakukan Absen</a>
+                          <a href="/absen" class="btn btn-sm btn-outline-primary">Lakukan Absen</a>
                         </div>
                       </div>
                       <div class="col-sm-5 text-center text-sm-left">
@@ -80,7 +80,7 @@
                       <p class="mb-4">
                         Klik untuk mengisi data form ketidakhadiran.
                       </p>
-                      <a href="ketidakhadiran" class="btn btn-sm btn-primary">Form Ketidakhadiran</a>
+                      <a href="/ketidakhadiran" class="btn btn-sm btn-primary">Form Ketidakhadiran</a>
                     </div>
                   </div>
                 </div>
@@ -93,7 +93,7 @@
                       <p class="mb-4">
                         Klik untuk melihat atau mengubah detail profil.
                       </p>
-                      <a href="profile" class="btn btn-sm btn-primary">Lihat Profil</a>
+                      <a href="/profile" class="btn btn-sm btn-primary">Lihat Profil</a>
                     </div>
                   </div>
                 </div>
@@ -106,7 +106,7 @@
                       <p class="mb-4">
                         Klik untuk melihat atau mencetak histori kehadiran.
                       </p>
-                      <a href="laporan" class="btn btn-sm btn-primary">Lihat Laporan</a>
+                      <a href="/laporan" class="btn btn-sm btn-primary">Lihat Laporan</a>
                     </div>
                   </div>
                 </div>

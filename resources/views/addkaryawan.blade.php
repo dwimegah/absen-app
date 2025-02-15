@@ -140,6 +140,18 @@
                             @endif
                           </div>
                           <div class="mb-3 col-md-6">
+                            <label for="state" class="form-label">Role</label>
+                            <select class="form-control" name="role" aria-label="Default select example">
+                              <option selected>--Pilih Role--</option>
+                              @foreach($role as $r)
+                              <option value="{{$r->namarole}}">{{$r->namarole}}</option>
+                              @endforeach
+                            </select>
+                            @error('role')
+                            <span class="form-text text-danger">{{ $message }}</span>
+                            @endif
+                          </div>
+                          <div class="mb-3 col-md-6">
                             <label for="state" class="form-label">Jabatan</label>
                             <input class="form-control" type="text" id="state" name="jabatan" placeholder="Masukkan divisi" />
                             @error('jabatan')
@@ -148,14 +160,12 @@
                           </div>
                           <div class="mb-3 col-md-6">
                             <label for="zipCode" class="form-label">Projek</label>
-                            <input
-                              type="text"
-                              class="form-control"
-                              id="zipCode"
-                              name="projek"
-                              placeholder="Masukkan name project"
-                              maxlength="6"
-                            />
+                            <select class="form-control" name="projek" aria-label="Default select example">
+                              <option selected>--Pilih Projek--</option>
+                              @foreach($projek as $p)
+                              <option value="{{$p->namaprojek}}">{{$p->namaprojek}}</option>
+                              @endforeach
+                            </select>
                             @error('projek')
                             <span class="form-text text-danger">{{ $message }}</span>
                             @endif

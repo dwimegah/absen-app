@@ -48,17 +48,17 @@
               <!-- Basic Bootstrap Table -->
               <div class="card">
                 <div class="card-header d-flex align-items-center justify-content-between">
-                  <h5 class="fw-bold">Tabel Monitoring</h5>
+                  <h5 class="fw-bold">Tabel Histori</h5>
                 </div>
                 <form>
                   <div style="padding-left:25px" class="col-xl-12">
-                    <div class="mb-3 row">
+                    <!-- <div class="mb-3 row">
                       <label style="padding-right:10px" class="col-sm-2 col-form-label">Tanggal</label>
                       <div class="col-sm-2">
                         <input name="tgl" class="form-control tgl" type="date"
                         value="<?php echo date('Y-m-d',strtotime($date)) ?>"/>
                       </div>
-                    </div>
+                    </div> -->
                   </div>
                 </form>
                 <div class="table-responsive text-nowrap">

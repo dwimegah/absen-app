@@ -29,16 +29,32 @@
             <li class="menu-header small text-uppercase">
               <span class="menu-header-text">Pages</span>
             </li>
-            @if (Auth::user()->jabatan == 'HRD' || Auth::user()->jabatan == 'Administrator')
-            <li class="menu-item {{$active == 'karyawan' ||  $active == 'blabla'? 'active open' : ''}}">
+            @if (Auth::user()->role == 'superuser')
+            <li class="menu-item {{$active == 'karyawan' ||  $active == 'role' ||  $active == 'projek'? 'active open' : ''}}">
               <a href="javascript:void(0);" class="menu-link menu-toggle">
                 <i class="menu-icon tf-icons bx bx-dock-top"></i>
                 <div data-i18n="Data Master">Data Master</div>
               </a>
               <ul class="menu-sub" style="list-style-type:none;">
+                <li class="menu-item {{$active == 'role' ? 'active' : ''}}">
+                  <a href="/role" class="menu-link">
+                    <i class="menu-icon tf-icons bx bx-cog"></i>
+                    <div data-i18n="Role">Role</div>
+                  </a>
+                </li>
+              </ul>
+              <ul class="menu-sub" style="list-style-type:none;">
+                <li class="menu-item {{$active == 'projek' ? 'active' : ''}}">
+                  <a href="/projek" class="menu-link">
+                    <i class="menu-icon tf-icons bx bx-shopping-bag"></i>
+                    <div data-i18n="Projek">Projek</div>
+                  </a>
+                </li>
+              </ul>
+              <ul class="menu-sub" style="list-style-type:none;">
                 <li class="menu-item {{$active == 'karyawan' ? 'active' : ''}}">
                   <a href="/karyawan" class="menu-link">
-                    <i class="menu-icon tf-icons bx bx-group"></i>
+                    <i class="menu-icon tf-icons bx bx-user-circle"></i>
                     <div data-i18n="Karyawan">Karyawan</div>
                   </a>
                 </li>
@@ -63,16 +79,18 @@
             <li class="menu-item {{$active == 'monitoring' ? 'active' : ''}}">
               <a href="/monitoring" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-table"></i>
-                <div data-i18n="Basic">Monitoring</div>
+                <div data-i18n="Basic">Histori</div>
               </a>
             </li>
             <!-- Laporan -->
+            @if (Auth::user()->role == 'superuser' || Auth::user()->role == 'manager')
             <li class="menu-item {{$active == 'laporan' ? 'active' : ''}}">
               <a href="/laporan" class="menu-link">
                 <i class="menu-icon tf-icons bx bxs-report"></i>
                 <div data-i18n="Basic">Laporan</div>
               </a>
             </li>
+            @endif
           </ul>
         </aside>
         <!-- / Menu -->

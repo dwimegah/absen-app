@@ -22,9 +22,14 @@ class KaryawanController extends Controller
     }
     function addkaryawan() {
         $karyawan = DB::table('users')->get();
+        $role = DB::table('role')->get();
+        $projek = DB::table('projek')->get();
+        
         $data = array(
             'active'=>'karyawan',
-            'datas' => $karyawan
+            'datas' => $karyawan,
+            'role' => $role,
+            'projek' => $projek,
             );
         return view('addkaryawan')->with($data);
     }
@@ -32,29 +37,34 @@ class KaryawanController extends Controller
     function savekaryawan(KaryawanRequest $request) {
         $request->validated();
 
-        // $name = $request->input('name');
-        // $imageName = $name.".".request()->foto->getClientOriginalExtension();
-        // request()->foto->move(public_path('img/profiles'), $imageName);
+        $name = $request->input('name');
+        $imageName = $name.".".request()->foto->getClientOriginalExtension();
+        request()->foto->move(public_path('img/profiles'), $imageName);
         
-        // $karyawan = DB::table('users')->insert([
-        //     'foto' => $imageName,
-        //     'name' => $name,
-        //     'email' => $request->input('email'),
-        //     'notelp' => $request->input('notelp'),
-        //     'password' => Hash::make($request->input('password')),
-        //     'jabatan' => $request->input('jabatan'),
-        //     'projek' => $request->input('projek'),
-        //     'alamat' => $request->input('alamat'),
-        // ]);
+        $karyawan = DB::table('users')->insert([
+            'foto' => $imageName,
+            'name' => $name,
+            'role' => $request->input('role'),
+            'email' => $request->input('email'),
+            'notelp' => $request->input('notelp'),
+            'password' => Hash::make($request->input('password')),
+            'jabatan' => $request->input('jabatan'),
+            'projek' => $request->input('projek'),
+            'alamat' => $request->input('alamat'),
+        ]);
 
         return redirect()->route('karyawan');
     }
 
     function editkaryawan($id) {
         $karyawan = DB::table('users')->where('id', $id)->get();
+        $role = DB::table('role')->get();
+        $projek = DB::table('projek')->get();
         $data = array(
             'active'=>'karyawan',
             'datas' => $karyawan,
+            'role' => $role,
+            'projek' => $projek,
             );
         return view('editkaryawan')->with($data);
     }

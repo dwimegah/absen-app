@@ -4,7 +4,7 @@ namespace App\Http\Request;
   
 use Illuminate\Foundation\Http\FormRequest;
   
-class KehadiranRequest extends FormRequest
+class RoleRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,7 +22,8 @@ class KehadiranRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'absenmasuk' => 'required',
+            'nama' => 'required',
+            'deskripsi' => 'required',
         ];
     }
 }

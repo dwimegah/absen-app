@@ -45,23 +45,22 @@
 
             <div class="container-xxl flex-grow-1 container-p-y">
               <h4 class="fw-bold py-3 mb-4">
-                Data Karyawan
+                Data Role
               </h4>
               <!-- Basic Bootstrap Table -->
               <div class="card">
                 <!-- <div class="card-header d-flex align-items-center justify-content-between">
-                  <h5 class="fw-bold py-3 mb-0">Data Karyawan</h5>
+                  <h5 class="fw-bold py-3 mb-0">Data Role</h5>
                 </div> -->
                 <div class="col" style="padding:15px;padding-top:25px;">
-                  <a type="button" class="btn btn-primary" href="addkaryawan">Tambah (+)</a>
+                  <a type="button" class="btn btn-primary" href="addrole">Tambah (+)</a>
                 </div>
                 <div class="table-responsive text-nowrap">
                   <table class="table" id="example">
                     <thead>
                       <tr>
                         <th>Nama</th>
-                        <th>Jabatan</th>
-                        <th>Project</th>
+                        <th>Deskripsi</th>
                         <th>Actions</th>
                       </tr>
                     </thead>
@@ -69,16 +68,15 @@
                     @foreach($datas as $d)
                       <tr>
                         <td>
-                          {{$d->name}}
+                          {{$d->namarole}}
                         </td>
-                        <td>{{$d->jabatan}}</td>
-                        <td>{{$d->projek}}</td>
+                        <td>{{$d->deskripsi}}</td>
                         <td>
                           <div class="dropdown">
-                              <a href="{{ route('editkaryawan', ['id'=>$d->id]) }}"
+                              <a href="{{ route('editrole', ['id'=>$d->id]) }}"
                                 ><i class="bx bx-edit-alt me-2 text-warning"></i></a
                               >
-                              <!-- <a  class="btn btn-danger px-5  radius-30" onclick="return confirm('Are you sure you want to Unassign this agent?')" href="{{ route('karyawan', 1) }}" >Unassign</a> -->
+                              <!-- <a  class="btn btn-danger px-5  radius-30" onclick="return confirm('Are you sure you want to Unassign this agent?')" href="{{ route('role', 1) }}" >Unassign</a> -->
                               <a href="javascript:void(0);"
                                 data-bs-toggle="modal"
                                 data-bs-target="#basicModal"
@@ -107,7 +105,7 @@
                         aria-label="Close"
                       ></button>
                     </div>
-                    <form action="{{ route('deletekaryawan') }}" method="post">
+                    <form action="{{ route('deleterole') }}" method="post">
                       <div class="modal-body">
                           @csrf
                           @method('DELETE')

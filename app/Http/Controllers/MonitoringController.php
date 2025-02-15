@@ -13,18 +13,58 @@ class MonitoringController extends Controller
 {
     function monitoring(Request $request) {
         $tgldipilih = $request->route("tgl");
+        $datas;
         if ($tgldipilih == null) {
             $tgldipilih = Carbon::now('Asia/Jakarta');
         } 
 
-        $karyawan = DB::table('users')
+        if (Auth::user()->role == "superuser") {
+            $datas = DB::table('users')
             ->join('absen', 'users.id', '=', 'idkaryawan')
             ->select('users.*', 'absen.*')
-            // ->where('absen.tgl', $tgldipilih->format('Y-m-d'))
+            ->where('projek', Auth::user()->projek)
             ->get();
+        } 
+        else if (Auth::user()->role == "manager") {
+            $datas = DB::table('users')
+            ->join('absen', 'users.id', '=', 'idkaryawan')
+            ->select('users.*', 'absen.*')
+            ->where('projek', Auth::user()->projek)
+            ->get();
+        } else {
+            $datas = DB::table('users')
+            ->join('absen', 'users.id', '=', 'idkaryawan')
+            ->select('users.*', 'absen.*')
+            ->where('users.id', Auth::user()->id)
+            ->get();
+        }
+
+        $bulan = array (
+            1 =>   'Januari',
+            'Februari',
+            'Maret',
+            'April',
+            'Mei',
+            'Juni',
+            'Juli',
+            'Agustus',
+            'September',
+            'Oktober',
+            'November',
+            'Desember'
+        );
+
+        foreach ($datas as $d) {
+            if ($d->tgl != null) {
+                $pecahkan = explode('-', $d->tgl);
+                $newDate = explode(' ', $pecahkan[2])[0].' '.$bulan[$pecahkan[1]].' '. $pecahkan[0] ;
+                $d->tgl = $newDate;
+            }
+        }
+
         $data = array(
             'active'=>'monitoring',
-            'datas' => $karyawan,
+            'datas' => $datas,
             'date' => $tgldipilih
             );
         return view('monitoring')->with($data);
@@ -52,7 +92,7 @@ class MonitoringController extends Controller
         $datas = DB::table('users')
             ->join('absen', 'users.id', '=', 'idkaryawan')
             ->select('users.*', 'absen.*')
-            // ->where('absen.tgl','like', Carbon::today()->toDateString())
+            ->whereBetween('absen.tgl', [$tglawal, $tglakhir])
             ->get();
 
         foreach ($datas as $d) {

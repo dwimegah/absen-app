@@ -131,20 +131,33 @@
                             </div>
                           </div>
                           <div class="mb-3 col-md-6">
+                            <label for="state" class="form-label">Role</label>
+                            <select class="form-control" name="role" aria-label="Default select example">
+                              <option>--Pilih Role--</option>
+                              @foreach($role as $r)
+                              <option value="{{$r->namarole}}" <?php echo $datas[0]->role == $r->namarole ? 'selected' : ''?>>{{$r->namarole}}</option>
+                              @endforeach
+                            </select>
+                            @error('role')
+                            <span class="form-text text-danger">{{ $message }}</span>
+                            @endif
+                          </div>
+                          <div class="mb-3 col-md-6">
                             <label for="state" class="form-label">Jabatan</label>
                             <input class="form-control" type="text" id="state" name="jabatan" value="{{$datas[0]->jabatan}}" placeholder="Masukkan divisi" />
                           </div>
+                          
                           <div class="mb-3 col-md-6">
                             <label for="zipCode" class="form-label">Projek</label>
-                            <input
-                              type="text"
-                              class="form-control"
-                              id="zipCode"
-                              name="projek"
-                              value="{{$datas[0]->projek}}"
-                              placeholder="Masukkan name project"
-                              maxlength="6"
-                            />
+                            <select class="form-control" name="projek" aria-label="Default select example">
+                              <option selected>--Pilih Projek--</option>
+                              @foreach($projek as $p)
+                              <option value="{{$p->namaprojek}}" <?php echo $datas[0]->projek == $p->namaprojek ? 'selected' : ''?>>{{$p->namaprojek}}</option>
+                              @endforeach
+                            </select>
+                            @error('projek')
+                            <span class="form-text text-danger">{{ $message }}</span>
+                            @endif
                           </div>
                           <div class="mb-3 col-md-6">
                             <label for="address" class="form-label">Alamat</label>
