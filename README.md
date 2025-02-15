@@ -20,10 +20,15 @@ Berikut Tampilan Aplikasi Absen
 
 ![image](https://github.com/user-attachments/assets/a3f95f90-f8ef-43d1-b6c1-b3d40a438b28)
 
-**6. Histori**
+**6. Notifikasi Ketidakhadiran**
+
+![image](https://github.com/user-attachments/assets/7923d79d-c0dc-429b-b765-aa567ac64597)
+
+
+**7. Histori**
 
 ![image](https://github.com/user-attachments/assets/35de1f5c-dffc-45c1-8e22-f312e7c0ddb4)
 
-**7. Laporan**
+**8. Laporan**
 
 ![image](https://github.com/user-attachments/assets/2fb0db44-38e7-4821-8432-69f23a795a89)
